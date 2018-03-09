@@ -17,7 +17,7 @@
   
 /* pattern (channel) / bytes = 46*/
 #define pattern0_data { \
-    ATM_CMD_M_SET_VOLUME(48), \
+    ATM_CMD_M_SET_VOLUME(128), \
     ATM_CMD_M_SLIDE_VOL_ON(-8), \
     ATM_CMD_M_SET_TEMPO(24), \
     ATM_CMD_M_CALL_REPEAT(4, 7), \
@@ -84,7 +84,7 @@ DEFINE_PATTERN(pattern4_array, pattern4_data);
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_E5, \
-    ATM_CMD_M_DELAY_TICKS(52), \
+    ATM_CMD_M_DELAY_TICKS_1(52), \
     ATM_CMD_I_RETURN, \
 }
 DEFINE_PATTERN(pattern5_array, pattern5_data);
@@ -98,7 +98,7 @@ DEFINE_PATTERN(pattern5_array, pattern5_data);
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_E5, \
-    ATM_CMD_M_DELAY_TICKS(44), \
+    ATM_CMD_M_DELAY_TICKS_1(44), \
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(8), \
     ATM_CMD_I_RETURN, \
