@@ -17,8 +17,8 @@
 
 /* pattern (channel) / bytes = 46*/
 #define pattern0_data { \
-    ATM_CMD_M_SET_VOLUME(128), \
-    ATM_CMD_M_SLIDE_VOL_ON(-16), \
+    ATM_CMD_M_SET_VOLUME(127), \
+    ATM_CMD_M_SLIDE_VOL_ADV_ON(-16, 64+1), \
     ATM_CMD_M_SET_TEMPO(24), \
     ATM_CMD_M_CALL_REPEAT(4, 7), \
     ATM_CMD_M_SET_TRANSPOSITION(-2), \
@@ -45,7 +45,6 @@ DEFINE_PATTERN(pattern0_array, pattern0_data);
 /* pattern (channel) / bytes = 15*/
 #define pattern1_data { \
     ATM_CMD_M_SET_VOLUME(48), \
-    ATM_CMD_M_SLIDE_VOL_ON(-2), \
     ATM_CMD_M_ARPEGGIO_ON(192, 64), \
     ATM_CMD_M_CALL_REPEAT(5, 2), \
     ATM_CMD_M_CALL(6), \
@@ -77,12 +76,14 @@ DEFINE_PATTERN(pattern4_array, pattern4_data);
 
 /* pattern (tune) / "Pattern 2" / bytes = 9*/
 #define pattern5_data { \
+    ATM_CMD_M_SLIDE_VOL_ADV_ON(-2, 64+1), \
     ATM_CMD_I_NOTE_A4, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_C5, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(4), \
+    ATM_CMD_M_SLIDE_VOL_ON(-2), \
     ATM_CMD_I_NOTE_E5, \
     ATM_CMD_M_DELAY_TICKS_1(52), \
     ATM_CMD_I_RETURN, \
@@ -91,14 +92,17 @@ DEFINE_PATTERN(pattern5_array, pattern5_data);
 
 /* pattern (tune) / "Pattern 3" / bytes = 11*/
 #define pattern6_data { \
+    ATM_CMD_M_SLIDE_VOL_ADV_ON(-2, 64+1), \
     ATM_CMD_I_NOTE_A4, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_C5, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(4), \
+    ATM_CMD_M_SLIDE_VOL_ON(-2), \
     ATM_CMD_I_NOTE_E5, \
     ATM_CMD_M_DELAY_TICKS_1(44), \
+    ATM_CMD_M_SLIDE_VOL_ADV_ON(-2, 64+1), \
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(8), \
     ATM_CMD_I_RETURN, \
@@ -107,8 +111,10 @@ DEFINE_PATTERN(pattern6_array, pattern6_data);
 
 /* pattern (tune) / "Pattern 4" / bytes = 11*/
 #define pattern7_data { \
+    ATM_CMD_M_SLIDE_VOL_ON(-2), \
     ATM_CMD_I_NOTE_C5, \
     ATM_CMD_M_DELAY_TICKS(24), \
+    ATM_CMD_M_SLIDE_VOL_ADV_ON(-2, 64+1), \
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(4), \
     ATM_CMD_I_NOTE_C5, \
