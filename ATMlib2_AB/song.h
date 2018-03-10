@@ -46,6 +46,7 @@ DEFINE_PATTERN(pattern0_array, pattern0_data);
 #define pattern1_data { \
     ATM_CMD_M_SET_VOLUME(48), \
     ATM_CMD_M_SLIDE_VOL_ON(-2), \
+    ATM_CMD_M_ARPEGGIO_ON(192, 64), \
     ATM_CMD_M_CALL_REPEAT(5, 2), \
     ATM_CMD_M_CALL(6), \
     ATM_CMD_M_CALL(7), \
