@@ -6,19 +6,19 @@
 #ifndef ARRAY_SIZE
 #define ARRAY_SIZE(a) (sizeof (a) / sizeof ((a)[0]))
 #endif
-  
+
 #ifndef NUM_PATTERNS
 #define NUM_PATTERNS(struct_) (ARRAY_SIZE( ((struct_ *)0)->patterns_offset))
 #endif
-  
+
 #ifndef DEFINE_PATTERN
 #define DEFINE_PATTERN(pattern_id, values) const uint8_t pattern_id[] = values;
 #endif
-  
+
 /* pattern (channel) / bytes = 46*/
 #define pattern0_data { \
     ATM_CMD_M_SET_VOLUME(128), \
-    ATM_CMD_M_SLIDE_VOL_ON(-8), \
+    ATM_CMD_M_SLIDE_VOL_ON(-16), \
     ATM_CMD_M_SET_TEMPO(24), \
     ATM_CMD_M_CALL_REPEAT(4, 7), \
     ATM_CMD_M_SET_TRANSPOSITION(-2), \
@@ -39,42 +39,41 @@
     ATM_CMD_M_CALL_REPEAT(4, 3), \
     ATM_CMD_M_SET_LOOP_PATTERN(0), \
     ATM_CMD_I_STOP, \
-}
+  }
 DEFINE_PATTERN(pattern0_array, pattern0_data);
-    
+
 /* pattern (channel) / bytes = 15*/
 #define pattern1_data { \
     ATM_CMD_M_SET_VOLUME(48), \
     ATM_CMD_M_SLIDE_VOL_ON(-2), \
-    ATM_CMD_M_ARPEGGIO_ON(192, 64), \
     ATM_CMD_M_CALL_REPEAT(5, 2), \
     ATM_CMD_M_CALL(6), \
     ATM_CMD_M_CALL(7), \
     ATM_CMD_M_SET_LOOP_PATTERN(1), \
     ATM_CMD_I_STOP, \
-}
+  }
 DEFINE_PATTERN(pattern1_array, pattern1_data);
-    
+
 /* pattern (channel) / bytes = 1*/
 #define pattern2_data { \
     ATM_CMD_I_STOP, \
-}
+  }
 DEFINE_PATTERN(pattern2_array, pattern2_data);
-    
+
 /* pattern (channel) / bytes = 1*/
 #define pattern3_data { \
     ATM_CMD_I_STOP, \
-}
+  }
 DEFINE_PATTERN(pattern3_array, pattern3_data);
-    
+
 /* pattern (tune) / "Pattern 1" / bytes = 3*/
 #define pattern4_data { \
     ATM_CMD_I_NOTE_A2, \
     ATM_CMD_M_DELAY_TICKS(8), \
     ATM_CMD_I_RETURN, \
-}
+  }
 DEFINE_PATTERN(pattern4_array, pattern4_data);
-    
+
 /* pattern (tune) / "Pattern 2" / bytes = 9*/
 #define pattern5_data { \
     ATM_CMD_I_NOTE_A4, \
@@ -86,9 +85,9 @@ DEFINE_PATTERN(pattern4_array, pattern4_data);
     ATM_CMD_I_NOTE_E5, \
     ATM_CMD_M_DELAY_TICKS_1(52), \
     ATM_CMD_I_RETURN, \
-}
+  }
 DEFINE_PATTERN(pattern5_array, pattern5_data);
-    
+
 /* pattern (tune) / "Pattern 3" / bytes = 11*/
 #define pattern6_data { \
     ATM_CMD_I_NOTE_A4, \
@@ -102,9 +101,9 @@ DEFINE_PATTERN(pattern5_array, pattern5_data);
     ATM_CMD_I_NOTE_D5, \
     ATM_CMD_M_DELAY_TICKS(8), \
     ATM_CMD_I_RETURN, \
-}
+  }
 DEFINE_PATTERN(pattern6_array, pattern6_data);
-    
+
 /* pattern (tune) / "Pattern 4" / bytes = 11*/
 #define pattern7_data { \
     ATM_CMD_I_NOTE_C5, \
@@ -118,9 +117,9 @@ DEFINE_PATTERN(pattern6_array, pattern6_data);
     ATM_CMD_I_NOTE_G4_, \
     ATM_CMD_M_DELAY_TICKS(16), \
     ATM_CMD_I_RETURN, \
-}
+  }
 DEFINE_PATTERN(pattern7_array, pattern7_data);
-    
+
 const PROGMEM struct score_data {
   uint8_t fmt;
   uint8_t num_patterns;
@@ -139,14 +138,14 @@ const PROGMEM struct score_data {
   .fmt = ATM_SCORE_FMT_FULL,
   .num_patterns = NUM_PATTERNS(struct score_data),
   .patterns_offset = {
-      offsetof(struct score_data, pattern0),
-      offsetof(struct score_data, pattern1),
-      offsetof(struct score_data, pattern2),
-      offsetof(struct score_data, pattern3),
-      offsetof(struct score_data, pattern4),
-      offsetof(struct score_data, pattern5),
-      offsetof(struct score_data, pattern6),
-      offsetof(struct score_data, pattern7),
+    offsetof(struct score_data, pattern0),
+    offsetof(struct score_data, pattern1),
+    offsetof(struct score_data, pattern2),
+    offsetof(struct score_data, pattern3),
+    offsetof(struct score_data, pattern4),
+    offsetof(struct score_data, pattern5),
+    offsetof(struct score_data, pattern6),
+    offsetof(struct score_data, pattern7),
   },
   .num_channels = 4,
   .start_patterns = {
