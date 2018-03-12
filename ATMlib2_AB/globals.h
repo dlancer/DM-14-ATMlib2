@@ -13,5 +13,6 @@ Sprites sprites;
 ATMsynth ATM;
 
 struct atm_sfx_state sfx_state;
+byte sfxState;
 
 #endif

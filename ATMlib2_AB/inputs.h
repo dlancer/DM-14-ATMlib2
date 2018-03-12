@@ -6,11 +6,22 @@
 void checkInputs()
 {
   if (arduboy.justPressed(B_BUTTON)) {
-    atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx1, &sfx_state);
+    switch (sfxState)
+    {
+      case 0:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx1, &sfx_state);
+        break;
+      case 1:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx2, &sfx_state);
+        break;
+      case 2:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx3, &sfx_state);
+        break;
+    }
   }
 
   if (arduboy.justPressed(A_BUTTON)) {
-    atm_synth_stop_sfx_track(&sfx_state);
+    sfxState = (++sfxState) %3;
   }
 
   if (arduboy.justPressed(LEFT_BUTTON)) {
