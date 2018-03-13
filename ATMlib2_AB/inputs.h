@@ -41,11 +41,26 @@ void checkInputs()
       case 10:
         atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx10, &sfx_state);
         break;
+      case 11:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx11, &sfx_state);
+        break;
+      case 12:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx12, &sfx_state);
+        break;
+      case 13:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx13, &sfx_state);
+        break;
+       case 14:
+        atm_synth_play_sfx_track(OSC_CH_THREE, (const uint8_t*)&sfx14, &sfx_state);
+        break;
+       case 15:
+        atm_synth_play_sfx_track(OSC_CH_TWO, (const uint8_t*)&sfx15, &sfx_state);
+        break;
     }
   }
 
   if (arduboy.justPressed(A_BUTTON)) {
-    sfxState = (++sfxState) % 11;
+    sfxState = (++sfxState) % 16;
   }
 
   if (arduboy.justPressed(LEFT_BUTTON)) {

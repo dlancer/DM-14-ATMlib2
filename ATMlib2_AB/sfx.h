@@ -191,4 +191,113 @@ const PROGMEM struct sfx10_data {
   },
 };
 
+const PROGMEM struct sfx11_data {
+  uint8_t fmt;
+  uint8_t pattern0[11];
+} sfx11 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(127),
+    ATM_CMD_M_VIBRATO_ON(31, 5),
+    ATM_CMD_M_SET_TEMPO(24),
+    ATM_CMD_I_NOTE_C5,
+    ATM_CMD_M_DELAY_TICKS(32),
+    ATM_CMD_I_STOP,
+  },
+};
+
+
+const PROGMEM struct sfx12_data {
+  uint8_t fmt;
+  uint8_t pattern0[10];
+} sfx12 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(127),
+    ATM_CMD_M_ARPEGGIO_ON(204, 72),
+    ATM_CMD_M_SET_TEMPO(24),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_DELAY_TICKS(32),
+    ATM_CMD_I_STOP,
+  },
+};
+
+const PROGMEM struct sfx13_data {
+  uint8_t fmt;
+  uint8_t pattern0[41];
+} sfx13 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(127),
+    ATM_CMD_M_SLIDE_VOL_ON(-2),
+    ATM_CMD_M_SET_TEMPO(48),
+    ATM_CMD_I_NOTE_G3_,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_E3,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_G4,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_C5_,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_D4_,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_G3_,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_A4_,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_F4,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_C5,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_D4,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_A4,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_G3,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_C5,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_F4_,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_NOTE_B3,
+    ATM_CMD_M_DELAY_TICKS(1),
+    ATM_CMD_I_RETURN,
+    ATM_CMD_I_STOP,
+  },
+};
+
+
+const PROGMEM struct sfx14_data {
+  uint8_t fmt;
+  uint8_t pattern0[12];
+} sfx14 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_TEMPO(48),
+    ATM_CMD_M_SET_VOLUME(1),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_SLIDE_VOL_ON(8),
+    ATM_CMD_M_DELAY_TICKS(16),
+    ATM_CMD_M_SLIDE_VOL_OFF,
+    ATM_CMD_I_STOP,
+  },
+};
+
+const PROGMEM struct sfx15_data {
+  uint8_t fmt;
+  uint8_t pattern0[14];
+} sfx15 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(0),
+    ATM_CMD_M_SLIDE_VOL_ON(8),
+    ATM_CMD_M_SET_TEMPO(24),
+    ATM_CMD_I_NOTE_F5,
+    ATM_CMD_M_DELAY_TICKS(16),
+    ATM_CMD_I_STOP,
+  },
+};
+
 #endif
