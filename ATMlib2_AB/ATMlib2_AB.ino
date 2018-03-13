@@ -30,8 +30,7 @@ void loop() {
   if (!(arduboy.nextFrame())) return;
   arduboy.pollButtons();
   arduboy.clear();
-  sprites.drawSelfMasked(0, 4, T_arg, 0);
-  sprites.drawSelfMasked(77, 4, modusCreate, 0);
+  sprites.drawSelfMasked(34, 4, T_arg, 0);
   checkInputs();
   arduboy.display();
 }

@@ -1,10 +1,10 @@
 #ifndef SFX_H
 #define SFX_H
 
-const PROGMEM struct sfx1_data {
+const PROGMEM struct sfx0_data {
   uint8_t fmt;
   uint8_t pattern0[12];
-} sfx1 = {
+} sfx0 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
     ATM_CMD_M_SET_TEMPO(32),
@@ -18,10 +18,10 @@ const PROGMEM struct sfx1_data {
   },
 };
 
-const PROGMEM struct sfx2_data {
+const PROGMEM struct sfx1_data {
   uint8_t fmt;
   uint8_t pattern0[14];
-} sfx2 = {
+} sfx1 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
     ATM_CMD_M_SET_TEMPO(48),
@@ -35,10 +35,10 @@ const PROGMEM struct sfx2_data {
   },
 };
 
-const PROGMEM struct sfx3_data { //12 +3 
+const PROGMEM struct sfx2_data { //12 +3
   uint8_t fmt;
   uint8_t pattern0[14];
-} sfx3 = {
+} sfx2 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
     ATM_CMD_M_SET_TEMPO(48),
@@ -51,15 +51,15 @@ const PROGMEM struct sfx3_data { //12 +3
   },
 };
 
-const PROGMEM struct sfx4_data {
+const PROGMEM struct sfx3_data {
   uint8_t fmt;
   uint8_t pattern0[18];
-} sfx4 = {
+} sfx3 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
     ATM_CMD_M_SET_TEMPO(48),
     ATM_CMD_M_SET_VOLUME(0),
-    ATM_CMD_M_VIBRATO_ON(-10,24),
+    ATM_CMD_M_VIBRATO_ON(-10, 24),
     ATM_CMD_M_SLIDE_VOL_ON(8),
     ATM_CMD_I_NOTE_F5,
     ATM_CMD_M_DELAY_TICKS(24),
@@ -69,26 +69,25 @@ const PROGMEM struct sfx4_data {
   },
 };
 
-const PROGMEM struct sfx5_data {
+const PROGMEM struct sfx4_data {
   uint8_t fmt;
-  uint8_t pattern0[18];
-} sfx5 = {
+  uint8_t pattern0[12];
+} sfx4 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
     ATM_CMD_M_SET_TEMPO(48),
     ATM_CMD_M_SET_VOLUME(63),
-    ATM_CMD_M_TREMOLO_ON(10,2),
-    ATM_CMD_I_NOTE_F5,
-    ATM_CMD_M_DELAY_TICKS(24),
-    ATM_CMD_M_DELAY_TICKS(24),
+    ATM_CMD_M_TREMOLO_ON(10, 2),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_DELAY_TICKS_1(48),
     ATM_CMD_I_STOP,
   },
 };
 
-const PROGMEM struct sfx6_data {
+const PROGMEM struct sfx5_data {
   uint8_t fmt;
-  uint8_t pattern0[30];
-} sfx6 = {
+  uint8_t pattern0[23];
+} sfx5 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
     ATM_CMD_M_SET_TEMPO(48),
@@ -101,10 +100,93 @@ const PROGMEM struct sfx6_data {
     ATM_CMD_M_SET_VOLUME(64),
     ATM_CMD_M_DELAY_TICKS(32),
     ATM_CMD_M_SET_VOLUME(32),
-    ATM_CMD_M_DELAY_TICKS(32),
-    ATM_CMD_M_DELAY_TICKS(32),
+    ATM_CMD_M_DELAY_TICKS_1(64),
     ATM_CMD_M_SET_VOLUME(10),
     ATM_CMD_M_DELAY_TICKS(10),
+    ATM_CMD_I_STOP,
+  },
+};
+
+
+const PROGMEM struct sfx6_data {
+  uint8_t fmt;
+  uint8_t pattern0[9];
+} sfx6 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_TEMPO(48),
+    ATM_CMD_M_SET_VOLUME(63),
+    ATM_CMD_M_NOTECUT_ON(0),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_DELAY_TICKS(16),
+    ATM_CMD_I_STOP,
+  },
+};
+
+const PROGMEM struct sfx7_data {
+  uint8_t fmt;
+  uint8_t pattern0[10];
+} sfx7 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_TEMPO(24),
+    ATM_CMD_M_SET_VOLUME(63),
+    ATM_CMD_M_SLIDE_VOL_ON(-8),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_DELAY_TICKS(8),
+    ATM_CMD_I_STOP,
+  },
+};
+
+const PROGMEM struct sfx8_data {
+  uint8_t fmt;
+  uint8_t pattern0[15];
+} sfx8 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(127),
+    ATM_CMD_M_SLIDE_VOL_ON(-8),
+    ATM_CMD_M_ARPEGGIO_ON(204, 0),
+    ATM_CMD_M_SET_TEMPO(48),
+    ATM_CMD_I_NOTE_C5,
+    ATM_CMD_M_DELAY_TICKS(8),
+    ATM_CMD_I_NOTE_C4,
+    ATM_CMD_M_DELAY_TICKS(8),
+    ATM_CMD_I_STOP,
+  },
+};
+
+const PROGMEM struct sfx9_data {
+  uint8_t fmt;
+  uint8_t pattern0[14];
+} sfx9 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(127),
+    ATM_CMD_M_SLIDE_VOL_ON(-16),
+    ATM_CMD_M_VIBRATO_ON(63, 15),
+    ATM_CMD_M_SET_TEMPO(24),
+    ATM_CMD_I_NOTE_F3,
+    ATM_CMD_M_DELAY_TICKS(8),
+    ATM_CMD_I_STOP,
+  },
+};
+
+const PROGMEM struct sfx10_data {
+  uint8_t fmt;
+  uint8_t pattern0[14];
+} sfx10 = {
+  .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
+  .pattern0 = {
+    ATM_CMD_M_SET_VOLUME(127),
+    ATM_CMD_M_NOTECUT_ON(0),
+    ATM_CMD_M_SET_TEMPO(48),
+    ATM_CMD_I_NOTE_F5,
+    ATM_CMD_M_DELAY_TICKS(4),
+    ATM_CMD_I_NOTE_C5,
+    ATM_CMD_M_DELAY_TICKS(4),
+    ATM_CMD_I_NOTE_A4,
+    ATM_CMD_M_DELAY_TICKS(8),
     ATM_CMD_I_STOP,
   },
 };
