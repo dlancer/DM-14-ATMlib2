@@ -71,10 +71,11 @@ const PROGMEM struct sfx3_data {
 
 const PROGMEM struct sfx4_data {
   uint8_t fmt;
-  uint8_t pattern0[12];
+  uint8_t pattern0[14];
 } sfx4 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
+    ATM_CMD_M_SET_WAVEFORM(1),
     ATM_CMD_M_SET_TEMPO(48),
     ATM_CMD_M_SET_VOLUME(63),
     ATM_CMD_M_TREMOLO_ON(10, 2),
@@ -110,10 +111,11 @@ const PROGMEM struct sfx5_data {
 
 const PROGMEM struct sfx6_data {
   uint8_t fmt;
-  uint8_t pattern0[9];
+  uint8_t pattern0[11];
 } sfx6 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
+    ATM_CMD_M_SET_WAVEFORM(1),
     ATM_CMD_M_SET_TEMPO(48),
     ATM_CMD_M_SET_VOLUME(63),
     ATM_CMD_M_NOTECUT_ON(0),
@@ -125,10 +127,11 @@ const PROGMEM struct sfx6_data {
 
 const PROGMEM struct sfx7_data {
   uint8_t fmt;
-  uint8_t pattern0[10];
+  uint8_t pattern0[12];
 } sfx7 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
+    ATM_CMD_M_SET_WAVEFORM(1),
     ATM_CMD_M_SET_TEMPO(24),
     ATM_CMD_M_SET_VOLUME(63),
     ATM_CMD_M_SLIDE_VOL_ON(-8),
@@ -271,10 +274,11 @@ const PROGMEM struct sfx13_data {
 
 const PROGMEM struct sfx14_data {
   uint8_t fmt;
-  uint8_t pattern0[12];
+  uint8_t pattern0[14];
 } sfx14 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
+    ATM_CMD_M_SET_WAVEFORM(1),
     ATM_CMD_M_SET_TEMPO(48),
     ATM_CMD_M_SET_VOLUME(1),
     ATM_CMD_I_NOTE_C4,
