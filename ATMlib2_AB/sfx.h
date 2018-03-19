@@ -287,13 +287,14 @@ const PROGMEM struct sfx14_data {
 
 const PROGMEM struct sfx15_data {
   uint8_t fmt;
-  uint8_t pattern0[14];
+  uint8_t pattern0[15];
 } sfx15 = {
   .fmt = ATM_SCORE_FMT_MINIMAL_MONO,
   .pattern0 = {
-    ATM_CMD_M_SET_VOLUME(0),
-    ATM_CMD_M_SLIDE_VOL_ON(8),
     ATM_CMD_M_SET_TEMPO(24),
+    ATM_CMD_M_SET_VOLUME(0),
+    ATM_CMD_M_NOTECUT_ON(0),
+    ATM_CMD_M_SLIDE_VOL_ON(8),
     ATM_CMD_I_NOTE_F5,
     ATM_CMD_M_DELAY_TICKS(16),
     ATM_CMD_I_STOP,
