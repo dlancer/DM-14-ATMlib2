@@ -22,7 +22,7 @@ void setup() {
   arduboy.audio.on();
     // Begin playback of song.
   atm_synth_setup();
-  atm_synth_play_score((const uint8_t*)&score);
+  atm_synth_start_score((const uint8_t*)&score);
   sfxState = 0;
 }
 
