@@ -23,7 +23,8 @@ void setup() {
     // Begin playback of song.
   atm_synth_setup();
   atm_synth_start_score((const uint8_t*)&score);
-  sfxState = 0;
+  sfx1State = 0;
+  sfx2State = 0;
 }
 
 void loop() {

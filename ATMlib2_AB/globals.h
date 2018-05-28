@@ -12,6 +12,7 @@ Arduboy2Base arduboy;
 Sprites sprites;
 ATMsynth ATM;
 
-byte sfxState;
+byte sfx1State;
+byte sfx2State;
 
 #endif
