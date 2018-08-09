@@ -17,66 +17,59 @@
 #include <ATMlib2.h>
 
 #include "bitmaps.h"
+extern "C" {
 #include "song.h"
 #include "sfx.h"
+}
 
 Arduboy2Base arduboy;
 Sprites sprites;
-ATMsynth ATM;
+
+ATM_PLAYERS(3);
+ATM_MEM_POOL(20);
 
 #define ARRAY_SIZE(a) (sizeof (a) / sizeof ((a)[0]))
 
 uint8_t selected_sfx[2] = {0, 0};
-const uint8_t *sfx_ptrs[16] = {
-  (const uint8_t*)&sfx0,
-  (const uint8_t*)&sfx1,
-  (const uint8_t*)&sfx2,
-  (const uint8_t*)&sfx3,
-  (const uint8_t*)&sfx4,
-  (const uint8_t*)&sfx5,
-  (const uint8_t*)&sfx6,
-  (const uint8_t*)&sfx7,
-  (const uint8_t*)&sfx8,
-  (const uint8_t*)&sfx9,
-  (const uint8_t*)&sfx10,
-  (const uint8_t*)&sfx11,
-  (const uint8_t*)&sfx12,
-  (const uint8_t*)&sfx13,
-  (const uint8_t*)&sfx14,
-  (const uint8_t*)&sfx15,
-};
 
 void play_sfx(uint8_t slot)
 {
-  uint8_t sfx_idx = selected_sfx[slot];
-  atm_synth_play_sfx_track(slot, slot, sfx_ptrs[sfx_idx]);
+  const uint8_t sfx_idx = selected_sfx[slot];
+  struct atm_entry_patterns ep;
+  ep.voice_count = 1;
+  ep.voices[0].osc_idx = slot;
+  ep.voices[0].pattern_idx = sfx_idx;
+  atm_synth_player_setup(slot, (const uint8_t *)&sfx, &ep);
+  atm_synth_player_set_pause(slot, 0);
 }
-
 
 void checkInputs()
 {
   if (arduboy.justPressed(A_BUTTON)) {
+    arduboy.digitalWriteRGB(true, false, false);
     play_sfx(0);
   }
 
   if (arduboy.justPressed(B_BUTTON)) {
+    arduboy.digitalWriteRGB(false, true, false);
     play_sfx(1);
   }
 
   if (arduboy.justPressed(UP_BUTTON)) {
-    selected_sfx[0] = ++selected_sfx[0] % ARRAY_SIZE(sfx_ptrs);
+    selected_sfx[0] = ++selected_sfx[0] % 16;
   }
 
   if (arduboy.justPressed(DOWN_BUTTON)) {
-    selected_sfx[1] = ++selected_sfx[1] % ARRAY_SIZE(sfx_ptrs);
+    selected_sfx[1] = ++selected_sfx[1] % 16;
   }
 
   if (arduboy.justPressed(LEFT_BUTTON)) {
-    atm_synth_start_score((const uint8_t*)&score);
+    atm_synth_player_setup(2, (const uint8_t *)&score, NULL);
+    atm_synth_player_set_pause(2, 0);
   }
 
   if (arduboy.justPressed(RIGHT_BUTTON)) {
-    atm_synth_set_score_paused(atm_synth_is_score_playing());
+    atm_synth_player_set_pause(2, !atm_synth_player_get_pause(2));
   }
 }
 
@@ -86,8 +79,12 @@ void setup() {
   // let's make sure the sound was not muted in a previous sketch
   arduboy.audio.on();
   // Begin playback of song.
-  atm_synth_setup();
-  atm_synth_start_score((const uint8_t*)&score);
+  osc_setup();
+  osc_gain = 2;
+  atm_setup();
+  atm_synth_player_setup(2, (const uint8_t *)&score, NULL);
+  atm_synth_player_set_pause(2, 0);
+  osc_set_isr_active(1);
 }
 
 void loop() {
