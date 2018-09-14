@@ -26,7 +26,7 @@ Arduboy2Base arduboy;
 Sprites sprites;
 
 ATM_PLAYERS(3);
-ATM_MEM_POOL(20);
+ATM_MEM_POOL(40);
 
 #define ARRAY_SIZE(a) (sizeof (a) / sizeof ((a)[0]))
 
